@@ -2,9 +2,9 @@
 
 ### What I've learned:
 
-* To throw an exception: ```throw()```.
+* To throw an exception, use ```throw()```
 
-* ```throw()``` stops the code.
+* ```throw()``` stops the code
 
 * Displaying an exception's error message:
 ```
