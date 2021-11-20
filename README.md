@@ -1,13 +1,13 @@
 # POO4: Exceptions
 
-### Highlights:
+### What I've learned:
 
-* To throw an exception: ```json throw() ```
+* To throw an exception: ```throw() ```
 
-* ```json throw() ``` stops the code
+* ```throw() ``` stops the code
 
 * Displaying an exception's error message:
-```json 
+```
 try {
     echo division(5) . "\n";
     echo division(0) . "\n";
