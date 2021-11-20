@@ -6,7 +6,7 @@
 
 * ```throw()``` stops the code
 
-* Displaying an exception's error message:
+* To display an exception's error message:
 ```
 try {
     echo division(5) . "\n";
