@@ -1,31 +1,22 @@
 <?php
-require_once 'HighWay.php';
 
 final class MotorWay extends HighWay
 {
-    const ALLOWED_VEHICLES = [
-        'car',
-        'truck',
-        'motorbike',
+    protected const UNALLOWED_VEHICLES = [
+        'bike',
+        'skateboard',
     ];
-    protected int $nbLane = 4;
-    protected int $maxSpeed = 130;
+    private int $nbLanes = 4;
+    private int $maxSpeed = 130;
 
-    public function addVehicle(Vehicle $vehicle): void
+    public function addVehicle(Vehicle $vehicle): string
     {
-        if (in_array($vehicle->getVehicleType(), self::ALLOWED_VEHICLES)) {
-            array_push($this->currentVehicles, $vehicle->getVehicleType());
+        echo "Let's try adding a " . $vehicle->getType() . "." . PHP_EOL;
+        if (in_array($vehicle->getType(), self::UNALLOWED_VEHICLES)) {
+            return "Sorry, the " . $vehicle->getType() . " is not allowed in Motorway.";
         } else {
-            echo "Désolé, le véhicule '" . $vehicle->getVehicleType() . "' n'a pas le droit de circuler ici.<br>" . PHP_EOL;
+            array_push($this->currentVehicles, $vehicle->getType());
+            return "The " . $vehicle->getType() . " is now on Motorway.";
         }
     }
-
-    // Lorsque je type ce que la méthode me retourne avec ": string",  j'obtiens l'erreur "Return value of MotorWay::getVehicles() must be of the type string, none returned in..."
-    public function getVehicles()
-    {
-        foreach ($this->currentVehicles as $vehicle) {
-            echo "<li>" . $vehicle . "</li>" . PHP_EOL;
-        }
-    }
-
 }

@@ -2,10 +2,12 @@
 
 abstract class Vehicle
 {
-    protected string $color;
-    protected int $currentSpeed;
-    protected int $nbSeats;
-    protected int $nbWheels;
+    private string $color;
+    private int $currentSpeed;
+    private int $nbSeats;
+    private int $nbWheels;
+    protected string $type;
+
 
     public function __construct(string $color, int $nbSeats)
     {
@@ -72,4 +74,10 @@ abstract class Vehicle
     {
         $this->nbWheels = $nbWheels;
     }
+
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
 }

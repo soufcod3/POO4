@@ -1,27 +1,23 @@
 <?php
+
 require_once 'Vehicle.php';
 
 class Car extends Vehicle
 {
 
-    public const ALLOWED_ENERGIES = [
+    private const ALLOWED_ENERGIES = [
         'fuel',
         'electric',
     ];
     private string $energy;
     private int $energyLevel;
-    private string $vehicleType = "car";
+    protected string $type = 'car';
+    protected bool $hasParkBrake = true;
 
     public function __construct(string $color, int $nbSeats, string $energy)
     {
         parent::__construct($color, $nbSeats);
         $this->setEnergy($energy);
-    }
-
-    // Methode qui retourne le type de véhicule, utile pour l'autorisation de circuler
-    public function getVehicleType(): string
-    {
-        return $this->vehicleType;
     }
 
     public function getEnergy(): string
@@ -45,5 +41,20 @@ class Car extends Vehicle
     public function setEnergyLevel(int $energyLevel): void
     {
         $this->energyLevel = $energyLevel;
+    }
+
+    // POO4 : updates Park Brake's state
+    public function setParkBrake(bool $hasParkBrake): void
+    {
+        $this->hasParkBrake = $hasParkBrake;
+    }
+
+    public function start(): string
+    {
+        // POO4 : throws an Exception
+        if ($this->hasParkBrake) {
+            throw new Exception("The park brake is ON !");
+        }
+        return "The car is starting !";
     }
 }

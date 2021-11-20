@@ -1,11 +1,12 @@
 <?php
+
 require_once 'Vehicle.php';
 
-final class Truck extends Vehicle 
+class Truck extends Vehicle 
 {
     protected int $capacity;
     protected int $load = 0;
-    private string $vehicleType = "truck";
+    protected string $type = 'truck';
 
     public function __construct(string $color, int $nbSeats, string $energy, int $capacity)
     {
@@ -13,12 +14,6 @@ final class Truck extends Vehicle
         $this->capacity = $capacity;
     }
 
-    // Methode qui retourne le type de véhicule, utile pour l'autorisation de circuler
-    public function getVehicleType(): string
-    {
-        return $this->vehicleType;
-    }
-    
     public function setLoad(int $load)
     {
         $this->load = $load;
